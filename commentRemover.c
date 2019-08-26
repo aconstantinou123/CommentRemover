@@ -56,17 +56,17 @@ void removeSingleLineComment(
 {
     if(*backSlash == -1 && *c == '/'){
             *backSlash = *c;
-        } 
-        else if (*c == '/')
-        {
-            *isSingleLine = true;
-        }
-        //more comments
-        else if(*isSingleLine == true && *c == '\n'){
-            *c = '\b';
-            *isSingleLine = false;
-            *backSlash = -1;
-        }
+    } 
+    else if (*c == '/')
+    {
+        *isSingleLine = true;
+    }
+    //more comments
+    else if(*isSingleLine == true && *c == '\n'){
+        *c = '\b';
+        *isSingleLine = false;
+        *backSlash = -1;
+    }
 }
 
 void removeMultiLineComment(
@@ -78,15 +78,15 @@ void removeMultiLineComment(
 {
     if(*backSlash == -1 && *c == '/'){
             *backSlash = *c;
-        } 
-        else if (*isMultiline == false && *c == '*' && *pChar == '/')
-        {
-            *isMultiline = true;
-        }
-        else if(*isMultiline == true && *c == '/' && *pChar == '*'){
-            *c = '\b';
-            *isMultiline = false;
-            *backSlash = -1;
-        }
-        *pChar = *c;
+    } 
+    else if (*isMultiline == false && *c == '*' && *pChar == '/')
+    {
+        *isMultiline = true;
+    }
+    else if(*isMultiline == true && *c == '/' && *pChar == '*'){
+        *c = '\b';
+        *isMultiline = false;
+        *backSlash = -1;
+    }
+    *pChar = *c;
 }
